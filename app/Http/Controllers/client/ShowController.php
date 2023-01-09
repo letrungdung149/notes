@@ -11,7 +11,8 @@ class ShowController
 {
     public function index(){
         $categories = Category::all();
-        return view('layouts.app',compact('categories'));
+        $notes = Note::all();
+        return view('layouts.app',compact('categories','notes'));
     }
 
     public function show($id){
