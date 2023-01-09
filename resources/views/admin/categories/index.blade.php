@@ -29,9 +29,6 @@
                                         Name
                                     </th>
                                     <th class="sorting">
-                                        Note_id
-                                    </th>
-                                    <th class="sorting">
                                         Created_at
                                     </th>
                                     <th class="sorting">
@@ -44,7 +41,6 @@
                                 @foreach($categories as $category)
                                     <tr>
                                     <td>{{ $category->name }}</td>
-                                    <td>{{ $category->note->name }}</td>
                                     <td>{{ $category->created_at }}</td>
                                     <td>{{ $category->updated_at }}</td>
                                     <td class=" dt-center noVis">

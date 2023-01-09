@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('note_id');
-            $table->foreign('note_id')->references('id')->on('notes');
+            $table->json('note_id')->nullable();
             $table->timestamps();
         });
     }

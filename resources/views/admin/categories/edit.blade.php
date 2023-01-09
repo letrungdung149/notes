@@ -17,9 +17,13 @@
                         </div>
                         <div class="form-group">
                             <label>Note_id</label>
-                            <select class="form-control select-search" data-fouc name="note_id">
+                            <select name="note_id[]" class="form-control select-multiple-drag" multiple="multiple" data-fouc>
                                 @foreach($notes as $note)
-                                    <option value="{{ $note->id }}" {{ ($note->id == $category->note_id) ? 'selected' : '' }}>{{ $note->name }}</option>
+                                <option value="{{ $note->id }}"
+                                @foreach($category->note_id as $key => $list)
+                                    {{$list == $note->id ? 'selected' : ''}}
+                                    @endforeach
+                                >{{ $note->name }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->any())

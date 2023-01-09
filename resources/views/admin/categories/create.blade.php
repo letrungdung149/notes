@@ -17,10 +17,9 @@
                         </div>
                         <div class="form-group">
                             <label>Note_id</label>
-                            <select class="form-control select-search" data-fouc name="note_id">
-                                <option value="" disabled selected>Select your option</option>
+                            <select name="note_id[]" class="form-control select-multiple-drag" multiple="multiple" data-fouc>
                                 @foreach($notes as $note)
-                                    <option value="{{ $note->id }}">{{ $note->name }}</option>
+                                <option value="{{ $note->id }}">{{$note->name}}</option>
                                 @endforeach
                             </select>
                             @if ($errors->any())

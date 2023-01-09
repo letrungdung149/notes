@@ -14,8 +14,12 @@ class Category extends Model
         'note_id'
     ];
 
+    protected $casts = [
+      'note_id' => 'array',
+    ];
+
     public function note()
     {
-        return $this->belongsTo(Note::class);
+        return $this->belongsTo(Note::class,'id');
     }
 }

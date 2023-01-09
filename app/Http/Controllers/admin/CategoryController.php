@@ -7,6 +7,8 @@ namespace App\Http\Controllers\admin;
 use App\Models\Category;
 use App\Models\Note;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use function League\Flysystem\toArray;
 
 class CategoryController
 {
@@ -28,10 +30,10 @@ class CategoryController
             'note_id' => 'required',
         ]);
 
-        Category::create([
-            'name' => $request->name,
-            'note_id' => $request->note_id,
-        ]);
+        $category = new Category();
+        $category->name = $request->name;
+        $category->note_id = $request->note_id;
+        $category->save();
         return redirect('admin/category');
     }
 
@@ -50,7 +52,7 @@ class CategoryController
         $category = Category::findOrFail($id);
         $category->update([
             'name' => $request->name,
-            'note_id' => $request->note_id
+            'note_id' =>$request->note_id
         ]);
         return redirect('/admin/category');
     }
