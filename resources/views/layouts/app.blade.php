@@ -39,7 +39,7 @@
                                 role="button"
                                 data-toggle="collapse"
                                 data-parent="#accordion"
-                                href="#collapseOne"
+                                href="#collapseOne{{ $category->id }}"
                                 aria-expanded="true"
                                 aria-controls="collapseOne"
                             >
@@ -48,13 +48,19 @@
                         </h4>
                     </div>
                     <div
-                        id="collapseOne"
+                        id="collapseOne{{ $category->id }}"
                         class="panel-collapse collapse in"
                         role="tabpanel"
                         aria-labelledby="headingOne"
                     >
                         <div class="panel-body">
-                            <a href="/show/{{ $category->note->id }}">{{ $category->note->name }}</a>
+                            <a href="#">
+                            @foreach($category->note_id as $list)
+                                    @if($category->note_id == $category->note->id)
+                                        {{ $category->node->name }}
+                                    @endif
+                                @endforeach
+                            </a>
                         </div>
                     </div>
                 </div>

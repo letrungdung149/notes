@@ -40,7 +40,7 @@
                                 <tbody>
                                 @foreach($notes as $note)
                                 <tr>
-                                    <td><a href="/show/{{ $note->id }}">{{ $note->name }}</a></td>
+                                    <td><a href="">{{ $note->name }}</a></td>
                                     <td>{{ $note->created_at }}</td>
                                     <td>{{ $note->updated_at }}</td>
                                     <td class=" dt-center noVis">

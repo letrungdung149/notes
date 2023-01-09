@@ -20,6 +20,6 @@ class Category extends Model
 
     public function note()
     {
-        return $this->belongsTo(Note::class,'id');
+        return $this->belongsTo(Note::class);
     }
 }
